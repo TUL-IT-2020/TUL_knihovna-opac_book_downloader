@@ -2,7 +2,8 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,visualstudiocode,vim
 
 ### User defined ###
-./data
+./data/
+./pages/
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
