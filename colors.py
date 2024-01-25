@@ -4,6 +4,7 @@
 # Reset
 Color_Off = '\033[0m'       # Text Reset
 NC = '\033[0m'
+Reset = '\033[0m'
 
 # Regular Colors
 Black = '\033[0;30m'        # Black

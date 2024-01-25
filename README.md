@@ -24,3 +24,9 @@ pip install -r dependencies.txt
 ```bash
 python3 book_downloader.py
 ```
+
+## Vývoj:
+### Testování:
+```bash
+python -m unittest
+```

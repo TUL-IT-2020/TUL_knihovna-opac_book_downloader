@@ -2,7 +2,6 @@ import os
 import re
 import img2pdf
 import requests
-#import TUL_knihovna_opac_downloader as TUL_dwnldr
 
 def save_picture_to_file(picture, filename):
     """ Save picture to file. """
@@ -30,9 +29,14 @@ def test_url(url):
     else:
         return False
 
+def generate_url_of_all_pages(file_path_url, book_number, first_page_number, number_of_pages):
+    """ Get next page url. """
+    for i in range(number_of_pages):
+        yield file_path_url + book_number + "#!?file=" + str(first_page_number + i)        
+
 class TUL_dwnldr:
 
-    def __init__(self, book_url):
+    def __init__(self):
         self.folder = "data"
         self.file_path_url = "https://knihovna-opac.tul.cz/files/"
 
@@ -73,11 +77,17 @@ class TUL_dwnldr:
         else:
             return None
 
+    def parse_book_number_from_url(url):
+        """ Parse book number from url.
+        https://knihovna-opac.tul.cz/media-viewer?rootDirectory=207986#!?file=69494 => 207986
+        """
+        return int(re.findall(r'rootDirectory=(.*)#!?', url)[0])
+
     def parse_file_number_from_url(url):
         """ Parse file number from url. 
-        # https://knihovna-opac.tul.cz/files/567467?height=60 => 567467
+        https://knihovna-opac.tul.cz/media-viewer?rootDirectory=207986#!?file=69494 => 69494
         """
-        return int(re.findall(r'files/(.*)\?', url)[0])
+        return int(re.findall(r'file=(.*)', url)[0])
 
     def prepare_download_folder(self):
         self.download_path = os.path.join(os.getcwd(), self.folder)
@@ -110,9 +120,11 @@ class TUL_dwnldr:
             #first_page_number = self.parse_file_number_from_url(first_picture_url)
 
         # save all pictures
+        print("Stahuji knihu...")
         pictures = self.save_all_pictures(number_of_pages, first_page_number)
 
         # convert jpg to pdf
+        print("Konvertuji do pdf...")
         with open(book_name, "wb") as pdf_file:
             # convert jpg to pdf
             pdf_file.write(img2pdf.convert(pictures))
