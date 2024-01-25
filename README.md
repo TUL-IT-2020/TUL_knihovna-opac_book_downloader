@@ -20,7 +20,14 @@ pip install -r dependencies.txt
 
 ## Použití:
 
-1. Spusťte skript:
+1. Připojte se do sítě TUL pomocí VPN.
+2. Otevřete si v prohlížeči školní knihovnu.
+- https://knihovna-opac.tul.cz
+3. Přihlaste se do svého účtu v knihovně.
+4. Vyhledejte si knihu, kterou chcete stáhnout.
+5. Rozklikněte si dokumenty ke stažení a zkopírujte **zkrácený** odakz na první stránku.
+- Například v podobě: "https://knihovna-opac.tul.cz/media-viewer?rootDirectory=207986"
+6. Spusťte na počítači skript:
 ```bash
 python3 book_downloader.py
 ```
