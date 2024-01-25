@@ -7,7 +7,7 @@ import os
 import re
 import img2pdf
 import requests
-#from TUL_knihovna_opac_downloader import *
+from TUL_knihovna_opac_downloader import *
 
 def get_picture_from_url(url):
     """ Get picture from url. """
@@ -126,7 +126,7 @@ def main():
     """ Main function. """
     print("Tento program stáhne knihu z internetové knihovny TUL a uloží ji do souboru.")
     
-    #book_url, number_of_pages, first_page_number = read_instructions()
+    book_url, number_of_pages, first_page_number = read_instructions()
 
     path = os.path.join(os.getcwd(), folder)
     # vytvoření složky

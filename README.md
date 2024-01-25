@@ -7,10 +7,12 @@ Toto je jednoduchý skript, který stahuje knihy z OPACu TUL knihovny. Skript je
 1. Stáhněte si Python 3.6 nebo novější.
 2. Stáhněte si repozitář.
 3. Nainstalujte potřebné knihovny:
+
 - Windows: 
 ```cmd
-pip install -r requirements.txt
+pip install -r dependencies.txt
 ```
+
 - Linux: 
 ```bash
 ./install_libs.sh
