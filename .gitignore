@@ -4,6 +4,7 @@
 ### User defined ###
 data/
 pages/
+*.pdf
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
